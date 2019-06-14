@@ -5,7 +5,6 @@
 * use mysql;
 * alter user 'root'@'localhost' identified with mysql_native_password by 'root123';
 
-
 /**
  * 查询语句
  * @param sql
@@ -40,6 +39,7 @@ const query = function (sql, cb) {
  * @returns {string}
  */
 const insertSql = function (table, data) {
+
     let sql = 'insert into ' + table;
     let keyStr = ' (';
     let valuesStr = 'values(';
@@ -69,6 +69,7 @@ const insertSql = function (table, data) {
  * @returns {string}
  */
 const updateSql = function (mainKey, mainValue, table, data) {
+    
     let sql = 'update ' + table + ' set ';
     for (let i in  data) {
         if ((typeof data[i]).indexOf('string') === 0) {
@@ -83,3 +84,4 @@ const updateSql = function (mainKey, mainValue, table, data) {
     console.error('updateSql=======>' + sql);
     return sql;
 }
+
